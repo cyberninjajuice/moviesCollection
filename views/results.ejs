@@ -1,10 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+body{
+  font-family: 'DINOT-Regular'
+}
+main {
+  display:flex;
+  flex-wrap:wrap;
+}
+h2{
+  font-family: Futura, AppleGothic,Verdana, sans-serif;
+  font-weight: bolder;
+}
+span{
+  font-family: Futura, Verdana, sans-serif;
+  font-size: 16px;
+  color: rgba(30, 30,30,0.95);
+}
+input{
+  font-size:40px;
+    background:rgba(240,240,30,1);
+    font:2.4em Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+    font-size:120%;
+    cursor:pointer;
+    border-bottom:5px solid rgba(150,150,10,1);
+    border-radius:4px;
+}
+input:hover{
+  background:rgba(255,200,100,.9);
+  border-bottom:2px solid rgba(175,140,60,1);
+  border-radius:4px;
+}
+
+</style>
     <meta charset="UTF-8">
-  <title><%=omdb.Title%> Search Results</title>
+  <title>Results <%=omdb.Title%> </title>
 </head>
 <body>
-<h1> <%=omdb.Title%> Search</h1>
+<h2> Results: <%=omdb.Title%>  <span>(<%=omdb.Year%>)</span></h2>
+
+<main>
+<ul>
+<img src="<%=omdb.Poster%>" height="350">
+<form method="POST" action="/movies">
+<input type="submit" name="<%=omdb.Title%>" value="Add to My Movies"><br>
+</form>
+<a href="/search"> Search for a different movie!</a>
 </body>
 </html>
